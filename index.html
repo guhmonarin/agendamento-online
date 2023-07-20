@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <title>Agendamento</title>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <h1 class="titulo">Agendamento</h1>
+        <div id="passo1" class="passo">
+            <h2>O que deseja realizar?</h2>
+            <div id="servico" class="servico">
+                <button onclick="selecionarServico('manutencao')">Manutenção</button>
+                <button onclick="selecionarServico('volume brasileiro')">Volume Brasileiro</button>
+                <button onclick="selecionarServico('mega volume')">Mega Volume</button>
+                <button onclick="selecionarServico('Sombrancelha')">Sombrancelha</button>
+            </div>
+            <button onclick="avancarPasso(2)" class="avancar">Avançar</button>
+        </div>
+
+        <div id="passo2" class="passo" style="display: none;">
+            <h2>Escolha a data</h2>
+            <div id="data" class="data">
+
+            </div>
+            <button onclick="avancarPasso(3)" class="avancar">Avançar</button>
+        </div>
+
+        <div id="passo3" class="passo" style="display: none;">
+            <h2>Escolha o seu horário</h2>
+            <div id="horario" class="horario">
+
+            </div>
+            <button onclick="avancarPasso(4)" class="avancar">Avançar</button>
+        </div>
+
+        <div id="passo4" class="passo" style="display: none;">
+            <h2>Passo 4: Informe seu nome e telefone</h2>
+            <input type="text" id="nome" placeholder="Seu nome">
+            <input type="text" id="telefone" placeholder="Seu telefone">
+            <button onclick="confirmarAgendamento()" class="avancar">Confirmar</button>
+        </div>
+
+    </main>
+
+    <footer>
+
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
