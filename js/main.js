@@ -4,19 +4,26 @@ let servicoEscolhido = null;
 let dataEscolhida = null;
 let horarioEscolhido = null;
 
-function selecionarServico(servico) {
+function selecionarServico(servico,botao) {
     servicoEscolhido = servico;
+    botao.classList.toggle('selecionado');
 }
 
-function selecionarData(data) {
+function selecionarData(data, botao) {
   dataEscolhida = data
+  botao.classList.toggle('selecionado');
 }
 
-function selecionarHorario(horario) {
+function selecionarHorario(horario, botao) {
   horarioEscolhido = horario
+  botao.classList.toggle('selecionado');
 }
 
-
+//Função para voltar para o antigo passo
+function voltarPasso(voltaPasso) {
+  document.getElementById(`passo${voltaPasso + 1}`).style.display = "none";
+  document.getElementById(`passo${voltaPasso}`).style.display = "flex"
+}
 
 //Função para avançar para o proximo passo
 function avancarPasso(proximoPasso) {
@@ -38,12 +45,13 @@ function preencherOpcoesData() {
       data.setDate(data.getDate() + i);
       const button = document.createElement("button");
       button.value = data.toISOString().slice(0, 10); // Formato YYYY-MM-DD
-      button.textContent = `${data.getDate()} (${obterNomeDia(data)})`;
+      button.classList = "botao"
+      button.textContent = `${data.getDate()}\n${obterNomeDia(data)}`;
       
       button.addEventListener('click', function() {
         const valorBotao = this.value;
         // Chame a função que deseja executar passando o valor do botão como parâmetro, se necessário.
-        selecionarData(valorBotao);
+        selecionarData(valorBotao,this);
       });
 
       dataSelect.appendChild(button);
@@ -52,7 +60,7 @@ function preencherOpcoesData() {
 
 // Função para obter o nome do dia da semana
 function obterNomeDia(data) {
-    const diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+    const diasSemana = ["Domingo", "Segunda feira", "Terça feira", "Quarta feira", "Quinta feira", "Sexta feira", "Sábado"];
     return diasSemana[data.getDay()];
   }
 
@@ -69,12 +77,13 @@ function preencherOpcoesHorario() {
       for (let minuto = 0; minuto < 60; minuto += 60) {
         const button = document.createElement("button");
         button.value = `${hora.toString().padStart(2, "0")}:${minuto.toString().padStart(2, "0")}`;
+        button.classList = "botao"
         button.textContent = `${hora.toString().padStart(2, "0")}:${minuto.toString().padStart(2, "0")}`;
 
         button.addEventListener('click', function() {
           const valorBotao = this.value;
           // Chame a função que deseja executar passando o valor do botão como parâmetro, se necessário.
-          selecionarHorario(valorBotao);
+          selecionarHorario(valorBotao, this);
         });
 
         horarioSelect.appendChild(button);
