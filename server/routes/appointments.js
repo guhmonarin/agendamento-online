@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mysqlConnection = require ('../config/database');
+const mysqlConnection = require ('../config/database.js');
 
 
 // Rota para listar todos os compromissos

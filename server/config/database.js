@@ -1,4 +1,4 @@
-const mysql = require('myslq2');
+const mysql = require('mysql2');
 
 const dbConfig = {
     host: 'localhost',
@@ -6,3 +6,7 @@ const dbConfig = {
     password: 'gustavinho',
     database: 'agendamento'
 };
+
+const mysqlConnection = mysql.createConnection(dbConfig);
+
+module.exports = mysqlConnection;
