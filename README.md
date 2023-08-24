@@ -47,5 +47,5 @@ Este projeto está sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) pa
 
 ---
 
-Criado por [Gustavo Monarin] - [gustavomonarin11@gmail.com] - [[Seu GitHub](https://github.com/guhmonarin)]
+Criado por Gustavo Monarin - [email](gustavomonarin11@gmail.com) - [GitHub](https://github.com/guhmonarin)
 
